@@ -37,7 +37,7 @@
 }
 
 - (NSString*)getDeviceOrientation {
-    switch ([UIApplication sharedApplication].statusBarOrientation) {
+    switch ([UIDevice currentDevice].orientation) {
         case UIInterfaceOrientationPortrait:
             return PORTRAIT_UP;
         case UIInterfaceOrientationPortraitUpsideDown:
