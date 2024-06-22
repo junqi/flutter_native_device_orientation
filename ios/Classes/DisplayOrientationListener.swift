@@ -26,18 +26,15 @@ class DisplayOrientationListener: OrientationListener {
   }
   
   private func getDeviceOrientation() -> String {
-    switch (UIApplication.shared.statusBarOrientation) {
+    switch (UIDevice.current.orientation) {
     case .portrait:
       return PORTRAIT_UP
     case .portraitUpsideDown:
       return PORTRAIT_DOWN
     case .landscapeRight:
-      // return left for right as UIInterfaceOrientation is 'the amount needed
-      // to rotate to get back to normal', not the actual rotation
-      return LANDSCAPE_LEFT
-    case .landscapeLeft:
-      // return right for left, see above
       return LANDSCAPE_RIGHT
+    case .landscapeLeft:
+      return LANDSCAPE_LEFT
     default:
       return UNKNOWN
     }
